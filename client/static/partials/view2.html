@@ -1,0 +1,21 @@
+<div id='msg'></div>
+<div ng-controller='customersController'>
+	<h3>Add a new customer</h3>
+	<form id="customers">
+		Name: <input type="text" ng-model="newCustomer.name">
+		<input class="submit" type="submit" value="add" ng-click="addCustomer()">
+	</form>
+	<input class="filter" type="text" placeholder="filter..." ng-model="filter_name">
+	<table>
+		<tr>
+			<th>Customer Name</th>
+			<th>Created Date</th>
+			<th>Actions</th>
+		</tr>
+		<tr ng-repeat="customer in customers | filter:filter_name | orderBy:'-CreatedAt'">
+			<td><span ng-bind='customer.name'></span></td>
+			<td><span ng-bind='customer.createdAt | date:"EEEE MMMM dd, yyyy @ h:mma"'></span></td>
+			<td><button id="delete" ng-click="removeCustomer(customer)">Delete</button></td>
+		</tr>
+	</table>
+</div>

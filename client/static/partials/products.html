@@ -1,0 +1,29 @@
+<div class = "row" ng-controller="productsController">
+	<div class="col-lg-2" id='add-product'>
+		<input type="text" class="search-div" ng-model='filter_name'>
+		<h4>Add a new product</h4>
+		<form>
+			Name:
+			<input class="search-div" type="text" ng-model="newProduct.name">
+			Inage (url):
+			<input class="search-div" type="text" ng-model="newProduct.img">
+			Description:
+			<input class="search-div" type="text" ng-model="newProduct.description">
+			Initial Quantity:
+			<input class="search-div" type="number" min="0" ng-model="newProduct.quantity">
+			<input class="submit" type="submit" value="Create" ng-click="addProduct()">
+		</form>
+	</div>
+	<div class="col-lg-10">
+			<div class="img-div" ng-repeat="product in products | filter:filter_name | limitTo: paginationLimit()">
+				<img src= "{{product.img}}">
+				<p><span ng-bind='product.name'></span></p>
+				<p><span ng-bind='"( " + product.quantity + " left)"'></span></p>
+			</div>
+			<button ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+			    Show more
+			</button>
+	</div>
+</div>
+
+

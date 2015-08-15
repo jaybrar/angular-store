@@ -1,0 +1,20 @@
+#add-product{
+	height: 600px;
+	padding-top: 20px;
+}
+.search-div {
+	font-size: 20px;
+	background-color: lightblue;
+	width: 100%;
+}
+.submit{
+	margin-top: 10px;
+}
+p{
+	margin: 0;
+}
+img{
+	width:190px; 
+	height: 120px;
+	margin-right: 2px;
+}

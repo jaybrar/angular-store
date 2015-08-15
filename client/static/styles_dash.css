@@ -1,0 +1,39 @@
+#search-div{
+	width: 180px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+}
+#pictures{
+	display: inline-block;
+	width: 980px;
+	margin-top: 20px;
+}
+#pictures p{
+	margin-bottom: 0;
+}
+.img-div{
+	display: inline-block;
+}
+#search-div input{
+	font-size: 20px;
+	background-color: lightblue;
+	width: 80%;
+	vertical-align: top;
+}
+#new-cust p{
+	display: inline-block;
+}
+#new-cust{
+	/*width: 330px;*/
+}
+#new-cust p{
+	margin-right: 30px;
+	margin-left: 10px;
+}
+#recent-orders{
+	margin-left: 180px;
+}
+#new-cust{
+	margin-left: 180px;
+}

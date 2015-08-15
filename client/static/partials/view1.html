@@ -1,0 +1,42 @@
+<div ng-controller ="ordersController">
+	<h3>Add a new order</h3>
+	<form id="orders">
+		<span class = "heading">Customer:</span> 
+		<select name="customer" ng-model="newOrder.customer">
+			<option value="">Name</option>
+			<option ng-repeat="customer in customers | orderBy:'name'" ng-bind='customer.name' value="{{customer.name}}"></option>
+		</select>
+		<span class = "heading">Quantity:</span> 
+		<select ng-model="newOrder.quantity">
+			<option value="">Quantity</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		<span class = "heading">Product:</span>
+		<select ng-model="newOrder.product">
+			<option value="">Product</option>
+			<option ng-repeat="product in products" value="{{product.name}}">{{product.name}}</option>
+		</select>
+		<input class="submit" type="submit" value="Order" ng-click="addOrder()">
+	</form>
+	<input class="filter" type="text" placeholder="filter..." ng-model="filter_name">
+	<table>
+		<tr>
+			<th>Customer Name</th>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Order Date</th>
+		</tr>
+		<tr ng-repeat="order in orders | filter:filter_name | orderBy:'-CreatedAt'">
+			<td><span ng-bind='order.customer'></span></td>
+			<td><span ng-bind='order.product'></span></td>
+			<td><span ng-bind='order.quantity'></span></td>
+			<td><span ng-bind='order.orderDate | date:"EEEE MMMM dd, yyyy @ h:mma"'></span></td>
+		</tr>
+	</table>
+</div>
+
+
+

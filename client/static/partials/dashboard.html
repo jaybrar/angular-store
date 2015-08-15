@@ -1,0 +1,42 @@
+<div class = "row" ng-controller="productsController">
+	<div calss="col-lg-12">
+		<div id="search-div">
+			<input type="text" ng-model='filter_name'>
+		</div>
+		<div id="pictures" >
+			<div class="img-div" ng-repeat="product in products | filter:filter_name | limitTo: paginationLimit()">
+				<img src= "{{product.img}}">
+				<p><span ng-bind='product.name'></span></p>
+				<p><span ng-bind=' "( " + product.quantity + " left)"'></span></p>
+			</div>
+			<button ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+			    Show more
+			</button>
+		</div>
+	</div>
+</div>
+<div class = "row" ng-controller="ordersController">
+	<div class="col-lg-12">
+		<div id="recent-orders">
+			<h3>Recent Orders</h3>
+			<p ng-repeat="order in orders | limitTo:paginationLimit()">{{order.customer}} purchased {{order.quantity}} {{order.product}}...{{order.orderDate | date:"EEEE MMMM dd, yyyy @ h:mma" }}</p>
+			<button ng-show="hasMoreOrdersToShow()" ng-click="showMoreItems()">
+			    Show more
+			</button>
+		</div>
+	</div>
+</div>
+<div class = "row" ng-controller="ordersController">
+	<div class="col-lg-12">  
+		<div id="new-cust">
+			<h3>New customers</h3>
+			<div ng-repeat="customer in customers | limitTo:paginationLimit()">
+			<p>{{customer.name}} joined the store...</p><span ng-bind="customer.createdAt | date:'EEEE MMMM dd, yyyy @ h:mma'"></span>
+			</div>
+			<button ng-show="hasMoreCustomersToShow()" ng-click="showMoreItems()">
+			    Show more
+			</button>
+		</div>
+	</div>
+</div>
+
